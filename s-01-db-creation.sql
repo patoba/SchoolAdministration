@@ -1,0 +1,2 @@
+create database proyecto_universidad_003;
+\c proyecto_universidad_003;

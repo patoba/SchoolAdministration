@@ -65,8 +65,6 @@ CREATE TABLE generacion(
     fecha_ingreso DATE NOT NULL
 );
 
-
-
 CREATE TABLE apellido_materno(
     apellido_materno VARCHAR(20) PRIMARY KEY
 );
