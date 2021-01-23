@@ -1,0 +1,13 @@
+llave_tipo_escuela, nombre_tipo_escuela, llave_campus
+1,Escuela de Medicina,1
+2,Escuela de Leyes,4
+3,Escuela de Ciencias Sociales,5
+4,Escuela de Ingenieria,1
+5,Escuela de Cine,10
+6,Escuela de Ciencias Computacionales,7
+7,Escuela de Filosofia,1
+8,Escuela de Lenguas, 9
+9,Escuela de Disenio,2
+10,Escuela de Paisaje,3
+11,Escuela de Enfermeria,6
+12,Escuela de Ciencias de la Tierra,8

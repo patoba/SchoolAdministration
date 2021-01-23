@@ -1,0 +1,34 @@
+llave_titulo,nombre_titulo,llave_categoria
+1,Arquitectura,1
+2,Disenio Industrial,1
+3,Arte Moderna,2
+4,Historia del Arte,3
+5,Matematicas,1
+6,Matematicas M,2
+7,Matematicas Aplicadas,1
+8,Fisica,1
+9,Fisica M,2
+10,Biologia,1
+11,Economia,1
+12,Econometria,2
+13,Ciencias Politicas,1
+14,Relaciones Internacionales,1
+15,Derecho,1
+16,Derecho Penal,2
+17,Derecho Fiscal,2
+18,Derecho Monetario Internacional,3
+19,Filosofia y Letras,1
+20,Veterinaria,1
+21,Medicina del Deporte,2
+22,Musica,1
+23,Ingenieria en Computacion,1
+24,Ingenieria Electrica Electronica,1
+25,Ciencias de la Computacion,1
+25,Ingenieria Civil,1
+26,Ingenieria Aplicada,2
+27,Ciencias Computacionales Aplicadas,3
+28,Odontologia,1
+29,Medico Cirujano,1,
+30,Enfermeria,1
+31,Quimica,1
+32,Ingenieria Quimica,1
