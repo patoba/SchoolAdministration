@@ -66,28 +66,27 @@ llave_estudiante = np.arange(db_size)
 
 estatus_list = ['Cursando', 'Baja', 'Créditos completos', 'Titulado']
 estatus_estudiante = random.choices(estatus_list, weights = (40, 5, 25, 30), k = db_size)
-llave_plan_estudios = np.random.randint(1, 36, size = db_size + 1)
+llave_plan_estudios = np.random.randint(0, 34 + 1, size = db_size + 1)
 llave_facultad = []
 creditos = []
 fecha_titulacion = []
 fecha_titulacion = []
 plan_df = pd.read_csv('data/plan_estudios.csv')
 
-for i in range(db_size + 1):
+for i in range(db_size):
 	llave_facultad.append(get_facultad(llave_plan_estudios[i]))
 	estudiante = estatus_estudiante[i]
-	creditos_plan = plan_df.iloc[llave_plan_estudios[i] - 1, 2]
+	creditos_plan = plan_df.iloc[llave_plan_estudios[i], 2]
 	if estudiante == 'Cursando' or estudiante == 'Baja':
 		creditos.append(random.randint(0, creditos_plan))
 	else:
 		creditos.append(creditos_plan)
 	anos_titulo = plan_df.iloc[max(llave_plan_estudios[i] - 1, 0), 3]
-	fecha_ingreso = generacion[estudiante_df.iloc[i + 1, -1] - 1]
+	# print(estudiante_df.iloc[i, -1] - 1)
+	fecha_ingreso = generacion[estudiante_df.iloc[i, -1] - 1]
 	dia, mes, anio = fecha_ingreso.split("-")
 	dia, mes, anio = int(dia), int(mes), int(anio) 
-	print(anos_titulo)
 	fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo))
 
-
-trayectoria = pd.DataFrame([llave_plan_estudios, llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion], columns = trayectoria_col)
-trayectoria.to_csv('data/trayectoria.csv')
+trayectoria = pd.DataFrame(zip(llave_plan_estudios, llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion), columns = trayectoria_col)
+trayectoria.to_csv('data/trayectoria.csv', index=False)
