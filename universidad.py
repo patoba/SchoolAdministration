@@ -4,9 +4,9 @@ import random
 import datetime
 from datetime import date
 
-db_size = 3658
-
-trayectoria_col = ['llave_plan_estudios', 'llave_facultad', 'llave_estudiante', 'estatus_estudiante', 'creditos', 'fecha_titulacion']
+trayectoria_col = ['llave_plan_estudios', 'llave_facultad', 'llave_estudiante', 
+	'estatus_estudiante', 'creditos', 'fecha_titulacion'
+]
 
 generacion = [
 	'06-08-2010',
@@ -21,9 +21,6 @@ generacion = [
 	'03-08-2019',
 	'21-09-2020'
 	]
-
-llave_plan_estudios = np.random.randint(1, 36, size = db_size + 1)
-
 
 def get_facultad(plan_estudios_id):
 	if plan_estudios_id <= 2:
@@ -62,32 +59,34 @@ def get_date(d, years):
 	except:
 		return d + (date(d.year + years, 1, 1) - date(d.year, 1, 1))
 
+estudiante_df = pd.read_csv('data/estudiante.csv')
+db_size = estudiante_df.shape[0]
 
 llave_estudiante = np.arange(db_size)
 
 estatus_list = ['Cursando', 'Baja', 'Créditos completos', 'Titulado']
 estatus_estudiante = random.choices(estatus_list, weights = (40, 5, 25, 30), k = db_size)
-	
+llave_plan_estudios = np.random.randint(1, 36, size = db_size + 1)
 llave_facultad = []
 creditos = []
 fecha_titulacion = []
 fecha_titulacion = []
 plan_df = pd.read_csv('data/plan_estudios.csv')
-# print(plan_df.head())
-estudiante_df = pd.read_csv('data/estudiante.csv')
+
 for i in range(db_size + 1):
 	llave_facultad.append(get_facultad(llave_plan_estudios[i]))
-	
 	estudiante = estatus_estudiante[i]
-	print(estudiante_df.iloc[i, -1])
-	creditos_gen = plan_df.iloc[estudiante_df.iloc[i, -1], 2]
+	creditos_plan = plan_df.iloc[llave_plan_estudios[i] - 1, 2]
 	if estudiante == 'Cursando' or estudiante == 'Baja':
-		creditos.append(random.randint(0, creditos_gen))
+		creditos.append(random.randint(0, creditos_plan))
 	else:
-		creditos.append(creditos_gen)
-	años_titulo = plan_df[plan_df.llave_plan_estudios == llave_plan_estudios[i]].duracion_titulo
+		creditos.append(creditos_plan)
+	anos_titulo = plan_df.iloc[max(llave_plan_estudios[i] - 1, 0), 3]
 	fecha_ingreso = generacion[estudiante_df.iloc[i + 1, -1] - 1]
-	# fecha_titulacion.append(get_date(datetime.date(fecha_ingreso), años_titulo[0]))
+	dia, mes, anio = fecha_ingreso.split("-")
+	dia, mes, anio = int(dia), int(mes), int(anio) 
+	print(anos_titulo)
+	fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo))
 
 
 trayectoria = pd.DataFrame([llave_plan_estudios, llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion], columns = trayectoria_col)

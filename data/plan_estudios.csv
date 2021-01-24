@@ -31,4 +31,6 @@ llave_plan_estudios,nombre_plan_estudios,creditos_titulo,duracion_titulo,llave_t
 30,Plan 2019 Medico Cirujano,                   319, 10,29  
 31,Plan 2019 Enfermeria,                        319, 10,30 
 32,Plan 2019 Quimica,                           319, 10,31  
-33,Plan 2019 Ingenieria Quimica,                319, 10,32  
+33,Plan 2019 Ingenieria Quimica,                319, 10,32
+34,Plan 2019 Letras Inglesas,                200, 8,34
+35,Plan 2019 Letras Hispanas,                200, 8,35
