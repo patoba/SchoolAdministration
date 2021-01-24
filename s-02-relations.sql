@@ -5,7 +5,7 @@ CREATE TABLE categoria(
 
 CREATE TABLE titulo(
     llave_titulo NUMERIC(10, 0) PRIMARY KEY,
-    nombre_titulo VARCHAR(20) NOT NULL,
+    nombre_titulo VARCHAR(100) NOT NULL,
     llave_categoria NUMERIC(10, 0) NOT NULL,
     CONSTRAINT fk_llave_categoria
       FOREIGN KEY (llave_categoria) 
@@ -13,7 +13,7 @@ CREATE TABLE titulo(
 );
 
 CREATE TABLE creditos_titulos(
-    creditos_titulos NUMERIC(2, 0) PRIMARY KEY
+    creditos_titulos NUMERIC(4, 0) PRIMARY KEY
 );
 
 CREATE TABLE duracion_titulo(
@@ -22,8 +22,8 @@ CREATE TABLE duracion_titulo(
 
 CREATE TABLE plan_estudios(
     llave_plan_estudios NUMERIC(10, 0) PRIMARY KEY,
-    nombre_plan_estudios VARCHAR(20) NOT NULL,
-    creditos_titulos NUMERIC(2, 0) NOT NULL,
+    nombre_plan_estudios VARCHAR(100) NOT NULL,
+    creditos_titulos NUMERIC(4, 0) NOT NULL,
     duracion_titulo NUMERIC(2, 0) NOT NULL, --numero semestre
     llave_titulo NUMERIC(10, 0) NOT NULL,
     CONSTRAINT fk_creditos_titulos
@@ -42,9 +42,9 @@ CREATE TABLE campus(
     nombre_campus VARCHAR(20) not null
 );
 
-CREATE TABLE escuela(
+CREATE TABLE tipo_escuela(
     llave_tipo_escuela NUMERIC(10, 0) PRIMARY KEY,
-    nombre_tipo_escuela VARCHAR(20) NO NULL,
+    nombre_tipo_escuela VARCHAR(100) NOT NULL,
     llave_campus NUMERIC(10, 0),
     CONSTRAINT fk_llave_campus
       FOREIGN KEY (llave_campus) 
@@ -53,11 +53,11 @@ CREATE TABLE escuela(
 
 CREATE TABLE facultad(
     llave_facultad NUMERIC(10, 0) PRIMARY KEY,
-    nombre_facultad VARCHAR(20) NO NULL,
+    nombre_facultad VARCHAR(100) NOT NULL,
     llave_tipo_escuela NUMERIC(10, 0),
     CONSTRAINT fk_llave_tipo_escuela
       FOREIGN KEY (llave_tipo_escuela) 
-	  REFERENCES escuela(llave_tipo_escuela)
+	  REFERENCES tipo_escuela(llave_tipo_escuela)
 );
 
 CREATE TABLE generacion(
@@ -74,9 +74,6 @@ CREATE TABLE apellido_paterno(
     apellido_paterno VARCHAR(20) PRIMARY KEY
 );
 
-CREATE TABLE creditos(
-    creditos NUMERIC(2, 0) PRIMARY KEY
-);
 
 CREATE TABLE genero(
     genero VARCHAR(1) PRIMARY KEY 
@@ -84,11 +81,11 @@ CREATE TABLE genero(
 
 CREATE TABLE estudiante(
     llave_estudiante NUMERIC(10, 0) PRIMARY KEY,
-    nombre_estudiante VARCHAR(20) NOT NULL,
-    apellido_materno VARCHAR(20) NOT NULL,
-    apellido_paterno VARCHAR(20) NOT NULL,
-    genero VARCHAR(1) PRIMARY KEY,
-    llave_generacion NUMERIC(10, 0) PRIMARY KEY,
+    nombre_estudiante VARCHAR(50) NOT NULL,
+    apellido_materno VARCHAR(50) NOT NULL,
+    apellido_paterno VARCHAR(50) NOT NULL,
+    genero VARCHAR(1) NOT NULL,
+    llave_generacion NUMERIC(10, 0) NOT NULL,
     CONSTRAINT fk_apellido_materno
       FOREIGN KEY (apellido_materno) 
 	  REFERENCES apellido_materno(apellido_materno),
@@ -100,7 +97,7 @@ CREATE TABLE estudiante(
 	  REFERENCES genero(genero),
     CONSTRAINT fk_llave_generacion
       FOREIGN KEY (llave_generacion) 
-	  REFERENCES generacion(llave_generacion),
+	  REFERENCES generacion(llave_generacion)
 );
  
 CREATE TABLE trayectoria(
@@ -124,3 +121,35 @@ CREATE TABLE trayectoria(
                    llave_facultad, 
                    llave_estudiante)
 );
+
+--permisos
+
+GRANT ALL PRIVILEGES ON estudiante TO alumno15;
+GRANT ALL PRIVILEGES ON genero TO alumno15;
+GRANT ALL PRIVILEGES ON creditos_titulos TO alumno15;
+GRANT ALL PRIVILEGES ON apellido_paterno TO alumno15;
+GRANT ALL PRIVILEGES ON apellido_materno TO alumno15;
+GRANT ALL PRIVILEGES ON generacion TO alumno15;
+GRANT ALL PRIVILEGES ON facultad TO alumno15;
+GRANT ALL PRIVILEGES ON tipo_escuela TO alumno15;
+GRANT ALL PRIVILEGES ON campus TO alumno15;
+GRANT ALL PRIVILEGES ON plan_estudios TO alumno15;
+GRANT ALL PRIVILEGES ON duracion_titulo TO alumno15;
+GRANT ALL PRIVILEGES ON creditos_titulos TO alumno15;
+GRANT ALL PRIVILEGES ON titulo TO alumno15;
+GRANT ALL PRIVILEGES ON categoria TO alumno15;
+
+GRANT ALL PRIVILEGES ON estudiante TO alumno19;
+GRANT ALL PRIVILEGES ON genero TO alumno19;
+GRANT ALL PRIVILEGES ON creditos_titulos TO alumno19;
+GRANT ALL PRIVILEGES ON apellido_paterno TO alumno19;
+GRANT ALL PRIVILEGES ON apellido_materno TO alumno19;
+GRANT ALL PRIVILEGES ON generacion TO alumno19;
+GRANT ALL PRIVILEGES ON facultad TO alumno19;
+GRANT ALL PRIVILEGES ON tipo_escuela TO alumno19;
+GRANT ALL PRIVILEGES ON campus TO alumno19;
+GRANT ALL PRIVILEGES ON plan_estudios TO alumno19;
+GRANT ALL PRIVILEGES ON duracion_titulo TO alumno19;
+GRANT ALL PRIVILEGES ON creditos_titulos TO alumno19;
+GRANT ALL PRIVILEGES ON titulo TO alumno19;
+GRANT ALL PRIVILEGES ON categoria TO alumno19;
