@@ -4,7 +4,7 @@ import random
 import datetime
 from datetime import date
 
-db_size = 3656
+db_size = 3658
 
 trayectoria_col = ['llave_plan_estudios', 'llave_facultad', 'llave_estudiante', 'estatus_estudiante', 'creditos', 'fecha_titulacion']
 
@@ -72,13 +72,14 @@ llave_facultad = []
 creditos = []
 fecha_titulacion = []
 fecha_titulacion = []
-plan_df = pd.read_csv('datasets/plan_estudios.csv')
-print(plan_df)
-estudiante_df = pd.read_csv('datasets/estudiante.csv')
+plan_df = pd.read_csv('data/plan_estudios.csv')
+# print(plan_df.head())
+estudiante_df = pd.read_csv('data/estudiante.csv')
 for i in range(db_size + 1):
 	llave_facultad.append(get_facultad(llave_plan_estudios[i]))
 	
 	estudiante = estatus_estudiante[i]
+	print(estudiante_df.iloc[i, -1])
 	creditos_gen = plan_df.iloc[estudiante_df.iloc[i, -1], 2]
 	if estudiante == 'Cursando' or estudiante == 'Baja':
 		creditos.append(random.randint(0, creditos_gen))
@@ -90,4 +91,4 @@ for i in range(db_size + 1):
 
 
 trayectoria = pd.DataFrame([llave_plan_estudios, llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion], columns = trayectoria_col)
-trayectoria.to_csv('datasets/trayectoria.csv')
+trayectoria.to_csv('data/trayectoria.csv')
