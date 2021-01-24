@@ -77,16 +77,19 @@ for i in range(db_size):
 	llave_facultad.append(get_facultad(llave_plan_estudios[i]))
 	estudiante = estatus_estudiante[i]
 	creditos_plan = plan_df.iloc[llave_plan_estudios[i], 2]
-	if estudiante == 'Cursando' or estudiante == 'Baja':
-		creditos.append(random.randint(0, creditos_plan))
-	else:
-		creditos.append(creditos_plan)
-	anos_titulo = plan_df.iloc[max(llave_plan_estudios[i] - 1, 0), 3]
-	# print(estudiante_df.iloc[i, -1] - 1)
 	fecha_ingreso = generacion[estudiante_df.iloc[i, -1] - 1]
 	dia, mes, anio = fecha_ingreso.split("-")
-	dia, mes, anio = int(dia), int(mes), int(anio) 
-	fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo))
+	dia, mes, anio = int(dia), int(mes), int(anio)
+	anos_titulo = plan_df.iloc[max(llave_plan_estudios[i] - 1, 0), 3]
+	if estudiante == 'Cursando' or estudiante == 'Baja':
+		creditos.append(random.randint(0, creditos_plan))
+		fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo // 2))
+	else:
+		creditos.append(creditos_plan)
+		fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo // 2 + random.choices([0, 1, 2, 3], 
+			weights = [60, 20, 15, 5], k = 1)[0]))
+	
+	
 
-trayectoria = pd.DataFrame(zip(llave_plan_estudios, llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion), columns = trayectoria_col)
+trayectoria = pd.DataFrame(zip(llave_plan_estudios + 1 , llave_facultad, llave_estudiante, estatus_estudiante, creditos, fecha_titulacion), columns = trayectoria_col)
 trayectoria.to_csv('data/trayectoria.csv', index=False)
