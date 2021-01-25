@@ -1,3 +1,11 @@
+--@Autores:               Barrero Olguín Patricio
+--                        Martínez Ostoa Néstor
+--                        Ramírez Bondi Alejandro
+--@Fecha de creación:     23/01/2021
+--@Descripción:           Creación de las tablas que conformarán la base de datos. 
+--                            Incluye los constraints utilizados.
+
+
 CREATE TABLE categoria(
     llave_categoria NUMERIC(10, 0) PRIMARY KEY,
     nombre_categoria VARCHAR(20) not null
@@ -66,12 +74,12 @@ CREATE TABLE generacion(
 );
 
 CREATE TABLE apellido_materno(
-    apellido_materno VARCHAR(20) PRIMARY KEY
+    apellido_materno VARCHAR(50) PRIMARY KEY
 );
 
 
 CREATE TABLE apellido_paterno(
-    apellido_paterno VARCHAR(20) PRIMARY KEY
+    apellido_paterno VARCHAR(50) PRIMARY KEY
 );
 
 
@@ -79,12 +87,17 @@ CREATE TABLE genero(
     genero VARCHAR(1) PRIMARY KEY 
 );
 
+CREATE TABLE edad(
+  edad NUMERIC(3, 0) PRIMARY KEY
+);
+
 CREATE TABLE estudiante(
     llave_estudiante NUMERIC(10, 0) PRIMARY KEY,
     nombre_estudiante VARCHAR(50) NOT NULL,
-    apellido_materno VARCHAR(50) NOT NULL,
     apellido_paterno VARCHAR(50) NOT NULL,
+    apellido_materno VARCHAR(50) NULL,
     genero VARCHAR(1) NOT NULL,
+    edad NUMERIC(3, 0) NOT NULL,
     llave_generacion NUMERIC(10, 0) NOT NULL,
     CONSTRAINT fk_apellido_materno
       FOREIGN KEY (apellido_materno) 
@@ -95,6 +108,9 @@ CREATE TABLE estudiante(
     CONSTRAINT fk_genero
       FOREIGN KEY (genero) 
 	  REFERENCES genero(genero),
+    CONSTRAINT fk_edad
+      FOREIGN KEY (edad) 
+	  REFERENCES edad(edad),
     CONSTRAINT fk_llave_generacion
       FOREIGN KEY (llave_generacion) 
 	  REFERENCES generacion(llave_generacion)
@@ -138,6 +154,8 @@ GRANT ALL PRIVILEGES ON duracion_titulo TO alumno15;
 GRANT ALL PRIVILEGES ON creditos_titulos TO alumno15;
 GRANT ALL PRIVILEGES ON titulo TO alumno15;
 GRANT ALL PRIVILEGES ON categoria TO alumno15;
+GRANT ALL PRIVILEGES ON trayectoria TO alumno15;
+GRANT ALL PRIVILEGES ON edad TO alumno15;
 
 GRANT ALL PRIVILEGES ON estudiante TO alumno19;
 GRANT ALL PRIVILEGES ON genero TO alumno19;
@@ -153,3 +171,5 @@ GRANT ALL PRIVILEGES ON duracion_titulo TO alumno19;
 GRANT ALL PRIVILEGES ON creditos_titulos TO alumno19;
 GRANT ALL PRIVILEGES ON titulo TO alumno19;
 GRANT ALL PRIVILEGES ON categoria TO alumno19;
+GRANT ALL PRIVILEGES ON trayectoria TO alumno19;
+GRANT ALL PRIVILEGES ON edad TO alumno19;

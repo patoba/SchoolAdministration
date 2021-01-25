@@ -1,16 +1,15 @@
 llave_facultad,nombre_facultad,llave_tipo_escuela
-1,Facultad de Arquitectura,2
-2,Facultad de Artes y Disenio,2
+1,Facultad de Arquitectura,12
+2,Facultad de Artes y Disenio,12
 3,Facultad de Ciencias,7
-4,Facultad de Ciencias Politicas y Sociales,3
-5,Facultad de Contaduria y Administracion,3
+4,Facultad de Economia,3
+5,Facultad de Ciencias Politicas y Sociales,3
 6,Facultad de Derecho,2
-7,Facultad de Economia,2
-8,Facultad de Filosofia y Letras,7
-9,Facultad de Medicina Veterinia y Zootecnia,1
-10,Facultad de Musica,5
-11,Facultad de Odontologia,1
-12,Facultad de Psicologia,7
+7,Facultad de Filosofia y Letras,7
+8,Facultad de Medicina Veterinia y Zootecnia,1
+9,Facultad de Musica,5
+10,Facultad de Ingenieria,4
+11,Facultad de Medicina,1
+12,Facultad de Quimica,1
 13,Facultad de Idiomas,8
-14,Facultad de Enfermeria,11
-15,Facultad de Quimica,1
+14,Facultad de Enfermeria,1

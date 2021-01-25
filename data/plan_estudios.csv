@@ -19,16 +19,17 @@ llave_plan_estudios,nombre_plan_estudios,creditos_titulo,duracion_titulo,llave_t
 18,Plan 2016 Derecho Monetario Internacional,   275, 9, 18
 19,Plan 2016 Filosofia y Letras,                275, 9, 19
 20,Plan 2016 Veterinaria,                       290, 9, 20
-21,Plan 2016 Medicina del Deporte,              290, 9, 21
+21,Plan 2016 Veterinaria Marina,                290, 9, 21
 22,Plan 2016 Musica,                            290, 9, 22
 23,Ingenieria en Computacion,                   290, 9, 23
 24,Plan 2019 Ingenieria Electrica Electronica,  290, 9, 24
 25,Plan 2019 Ciencias de la Computacion,        290, 10,25  
-26,Plan 2019 Ingenieria Civil,                  290, 10,25
-27,Plan 2019 Ingenieria Aplicada,               290, 10,26   
-28,Plan 2019 Ciencias Computacionales Aplicadas,319, 10,27    
-29,Plan 2019 Odontologia,                       319, 10,28    
-30,Plan 2019 Medico Cirujano,                   319, 10,29  
-31,Plan 2019 Enfermeria,                        319, 10,30 
-32,Plan 2019 Quimica,                           319, 10,31  
-33,Plan 2019 Ingenieria Quimica,                319, 10,32  
+26,Plan 2019 Ingenieria Civil,                  290, 10,26
+27,Plan 2019 Ingenieria Aplicada,               290, 10,27   
+28,Plan 2019 Ciencias Computacionales Aplicadas,319, 10,28    
+29,Plan 2019 Odontologia,                       319, 10,29    
+30,Plan 2019 Medico Cirujano,                   319, 10,30  
+31,Plan 2019 Enfermeria,                        319, 10,31 
+32,Plan 2019 Ingenieria Quimica,                319, 10,32
+33,Plan 2019 Letras Inglesas,                   200, 8,33
+34,Plan 2019 Letras Hispanas,                   200, 8,34
