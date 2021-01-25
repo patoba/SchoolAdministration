@@ -87,8 +87,8 @@ for i in range(db_size):
 		fecha_titulacion.append(None)
 	else:
 		creditos.append(creditos_plan)
-		fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo // 2 + random.choices([-2, -1, 0, 1, 2, 3], 
-			weights = [1, 3, 60, 19, 12, 5], k = 1)[0]))
+		fecha_titulacion.append(get_date(datetime.date(anio, mes, dia), anos_titulo // 2 + random.choices([0, 1, 2, 3], 
+			weights = [60, 20, 15, 5], k = 1)[0]))
 	
 	
 
