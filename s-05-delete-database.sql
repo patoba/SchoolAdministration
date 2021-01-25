@@ -23,7 +23,5 @@ drop table categoria;
 
 --delete database
 
-/*
 \c cursodb
 drop database if exists proyecto_universidad_003;
-*/
