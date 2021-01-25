@@ -7,7 +7,7 @@ Consultas predictivas:
 1. Numero de estudiantes que estudiarán en primer ingreso Ing. Civil en 2025 en 
     la FI
 2. Numero de estudiantes que abandonarán el semestre en 2021
-3. Número de estudiantes que se titularán en 2025
+3. Número de estudiantes que se titularan en 2025
 4. ¿De qué tamaño será la generación 2026?
 """
 
@@ -39,9 +39,12 @@ def timeseries_train_split(X, y, test_size):
 
 ################################################################################
 # 1 (anio, fecha, titulo) => num_estudiantes  [regresion]
-generacion_estudiante = pd.concat([generacion_df, estudiante_df], axis=1, join='inner')
-hecho_estudiante = pd.concat([generacion_estudiante, trayectoria_df], axis=1, join='inner')
-print(hecho_estudiante.columns)
+generacion_estudiante = pd.merge(generacion_df, estudiante_df, how="inner", on=["llave_generacion"])
+hecho_estudiante = pd.merge(generacion_estudiante, trayectoria_df, how="inner", on=["llave_estudiante"])
+print(plan_estudios_df)
+hecho_plan = pd.merge(generacion_estudiante, plan_estudios_df, how="inner", on=["llave_plan_estudios"])
+
+print(hecho_estudiante)
 
 
 ################################################################################
