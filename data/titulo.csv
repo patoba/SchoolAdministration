@@ -19,7 +19,7 @@ llave_titulo,nombre_titulo,llave_categoria
 18,Derecho Monetario Internacional,3
 19,Filosofia y Letras,1
 20,Veterinaria,1
-21,Medicina del Deporte,2
+21,Veterinaria Marina,2
 22,Musica,1
 23,Ingenieria en Computacion,1
 24,Ingenieria Electrica Electronica,1
@@ -32,3 +32,5 @@ llave_titulo,nombre_titulo,llave_categoria
 31,Enfermeria,1
 32,Quimica,1
 33,Ingenieria Quimica,1
+34,Letras Inglesas,1
+35,Letras Hispanas,1

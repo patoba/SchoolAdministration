@@ -1,3 +1,9 @@
+--@Autores:               Barrero Olguín Patricio
+--                        Martínez Ostoa Néstor
+--                        Ramírez Bondi Alejandro
+--@Fecha de creación:     23/01/2021
+--@Descripción:           Carga de datos
+
 \copy categoria FROM 'data/categoria.csv' DELIMITER ',' CSV HEADER;
 \copy titulo FROM 'data/titulo.csv' DELIMITER ',' CSV HEADER;
 \copy creditos_titulos FROM 'data/creditos_titulo.csv' DELIMITER ',' CSV HEADER;
@@ -10,8 +16,9 @@
 \copy apellido_materno FROM 'data/apellido_materno.csv' DELIMITER ',' CSV HEADER;
 \copy apellido_paterno FROM 'data/apellido_paterno.csv' DELIMITER ',' CSV HEADER;
 \copy genero FROM 'data/genero.csv' DELIMITER ',' CSV HEADER;
+\copy edad FROM 'data/edad.csv' DELIMITER ',' CSV HEADER;
 \copy estudiante FROM 'data/estudiante.csv' DELIMITER ',' CSV HEADER;
---\copy trayectoria FROM 'data/trayectoria.csv' DELIMITER ',' CSV HEADER;
+\copy trayectoria FROM 'data/trayectoria.csv' DELIMITER ',' CSV HEADER;
 
 
 
